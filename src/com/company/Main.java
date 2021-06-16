@@ -177,6 +177,35 @@ class Solution {
         return res;
     }
 
+    public int[] countBits(int n) {
+
+        int [] ans = new int[n+1];
+        int grp = 1;
+        int inc = 0;
+
+
+        ans[0] = 0;
+        ans[1] = 1;
+
+        for(int i = 2; i < n+1;i++)
+        {
+            if(Math.pow(2, grp) > inc)
+            {
+                ans[i] = ans[inc] + 1;
+                inc++;
+            }
+
+            else
+            {
+                ans[i] = 1;
+                grp++;
+                inc = 1;
+            }
+        }
+
+        return ans;
+    }
+
 }
 
 
